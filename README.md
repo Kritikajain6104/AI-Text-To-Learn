@@ -1,8 +1,8 @@
 # Text-to-Learn: AI-Powered Course Generator
 
-![Project Demo GIF](link_to_your_demo_gif_here) An AI-powered, full-stack web application that transforms any user-submitted topic into a structured, multi-module online course.
+! An AI-powered, full-stack web application that transforms any user-submitted topic into a structured, multi-module online course.
 
-**Live Demo:** [https://your-vercel-app-url.vercel.app](https://your-vercel-app-url.vercel.app)
+**Live Demo:** [[https://your-vercel-app-url.vercel.app](https://text-to-learn.vercel.app/)]
 
 ---
 
@@ -33,7 +33,7 @@ To run this project locally:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+    git clone [[https://github.com/your-username/your-repo-name.git](https://github.com/Kritikajain6104/AI-Text-To-Learn)]
     cd text-to-learn
     ```
 2.  **Setup Backend:**
