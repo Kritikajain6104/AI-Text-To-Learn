@@ -13,7 +13,8 @@ const cors = require("cors");
 // Add your Vercel frontend URL to the list of allowed origins
 const allowedOrigins = [
   "http://localhost:5173", // For local development
-  "https://text-to-learn-l74ouray4-kritika-jains-projects.vercel.app", // Your live frontend
+  "https://text-to-learn-l74ouray4-kritika-jains-projects.vercel.app",
+  "https://text-to-learn.vercel.app/", // Your live frontend
 ];
 
 app.use(
