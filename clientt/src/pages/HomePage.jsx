@@ -31,24 +31,31 @@ const CourseGrid = ({ courses }) => (
 );
 
 const HomePage = () => {
-  const { user, getAccessTokenSilently } = useAuth0();
+  const { user, getAccessTokenSilently, isAuthenticated } = useAuth0();
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCourses = async () => {
-      try {
-        const token = await getAccessTokenSilently();
-        const response = await getMyCourses(token);
-        setCourses(response.data);
-      } catch (error) {
-        toast.error("Could not fetch your courses.");
-      } finally {
+      // Only fetch if the user is authenticated and the user object is available
+      if (isAuthenticated && user) {
+        setLoading(true);
+        try {
+          const token = await getAccessTokenSilently();
+          const response = await getMyCourses(token);
+          setCourses(response.data);
+        } catch (error) {
+          toast.error("Could not fetch your courses.");
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        // If the user is not authenticated, we're not loading anything
         setLoading(false);
       }
     };
     fetchCourses();
-  }, [getAccessTokenSilently]);
+  }, [isAuthenticated, user, getAccessTokenSilently]); // Add 'user' to the dependency array
 
   if (loading) return <div>Loading courses...</div>;
 
@@ -58,8 +65,8 @@ const HomePage = () => {
         <h1 className="text-4xl font-bold text-gray-800">Welcome back, {user?.name || 'learner'}!</h1>
         <p className="mt-2 text-gray-600">Your personal learning dashboard.</p>
       </div>
-
-      {courses.length === 0 ? <CallToAction /> : <CourseGrid courses={courses} />}
+      
+      {isAuthenticated && (courses.length === 0 ? <CallToAction /> : <CourseGrid courses={courses} />)}
     </div>
   );
 };
