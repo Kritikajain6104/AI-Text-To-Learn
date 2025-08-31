@@ -87,3 +87,16 @@ exports.getCourseById = async (req, res) => {
     res.status(500).json({ message: "Server error while fetching course." });
   }
 };
+
+exports.getMyCourses = async (req, res) => {
+  try {
+    const userId = req.auth.payload.sub;
+    const courses = await Course.find({ creator: userId }).sort({
+      createdAt: -1,
+    });
+    res.status(200).json(courses);
+  } catch (error) {
+    console.error("Error fetching user courses:", error);
+    res.status(500).json({ message: "Failed to fetch courses." });
+  }
+};

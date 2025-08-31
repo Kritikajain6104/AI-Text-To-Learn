@@ -8,7 +8,10 @@ const checkJwt = require("../middlewares/auth.middleware");
 // @access  Private
 router.post("/generate", checkJwt, courseController.generateCourseController);
 
-// GET /api/courses/:courseId  <-- ADD THIS NEW ROUTE
+// GET /api/courses/my-courses
+router.get("/my-courses", checkJwt, courseController.getMyCourses);
+
+// GET /api/courses/:courseId
 router.get("/:courseId", checkJwt, courseController.getCourseById);
 
 module.exports = router;

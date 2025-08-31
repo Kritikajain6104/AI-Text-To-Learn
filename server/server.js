@@ -5,13 +5,31 @@ const courseRoutes = require("./routes/course.routes");
 const lessonRoutes = require("./routes/lesson.routes");
 const youtubeRoutes = require("./routes/youtube.routes");
 const express = require("express");
-const cors = require("cors");
 
 // Create the Express app
 const app = express();
+const cors = require("cors");
 
-// Middleware
-app.use(cors()); // Enable Cross-Origin Resource Sharing
+// Add your Vercel frontend URL to the list of allowed origins
+const allowedOrigins = [
+  "http://localhost:5173", // For local development
+  "https://text-to-learn-l74ouray4-kritika-jains-projects.vercel.app", // Your live frontend
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg =
+          "The CORS policy for this site does not allow access from the specified Origin.";
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+  })
+);
 app.use(express.json()); // Enable parsing of JSON request bodies
 
 const connectDB = require("./config/database"); // <-- IMPORT HERE

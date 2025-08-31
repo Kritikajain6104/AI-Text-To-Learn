@@ -30,3 +30,10 @@ export const searchYoutubeVideo = (query, token) => {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
+
+// ... (other api functions)
+export const getMyCourses = (token) => {
+  return api.get("/api/courses/my-courses", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
