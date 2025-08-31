@@ -14,7 +14,7 @@ const cors = require("cors");
 const allowedOrigins = [
   "http://localhost:5173", // For local development
   "https://text-to-learn-l74ouray4-kritika-jains-projects.vercel.app",
-  "https://text-to-learn.vercel.app/", // Your live frontend
+  "https://text-to-learn.vercel.app", // Your live frontend
 ];
 
 app.use(
