@@ -26,7 +26,10 @@
 - **Deployment:** Vercel (Frontend), Render (Backend)
 
 ---
-
+## Future Enhancements
+* **Multilingual Audio Support:** Integrate the Gemini API's translation and Text-to-Speech capabilities to provide lesson explanations in additional languages like Hindi.
+* **User Progress Tracking:** Allow users to mark lessons and modules as complete.
+  
 ## Setup & Installation
 
 To run this project locally:
