@@ -1,8 +1,8 @@
 # Text-to-Learn: AI-Powered Course Generator
 
-! An AI-powered, full-stack web application that transforms any user-submitted topic into a structured, multi-module online course.
+An AI-powered, full-stack web application that transforms any user-submitted topic into a structured, multi-module online course.
 
-**Live Demo:** [[https://your-vercel-app-url.vercel.app](https://text-to-learn.vercel.app/)]
+**Live Demo:** [[https://text-to-learn.vercel.app/](https://text-to-learn.vercel.app/)]
 
 ---
 
